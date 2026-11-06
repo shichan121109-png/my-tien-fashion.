@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MỸ TIÊN - Thời trang nam nữ, phong cách mỗi ngày.">
+<title>MỸ TIÊN | Fashion Store</title>
+<style>
+:root{--black:#101010;--panel:#191919;--gold:#d6b45e;--gold2:#f0d58a;--white:#fff;--muted:#aaa;--line:#333;--red:#d95c5c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f6f6;color:#171717;font-family:Arial,Helvetica,sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+.topbar{background:#080808;color:#eee;text-align:center;padding:9px 12px;font-size:12px;letter-spacing:.5px}
+header{background:#111;color:white;position:sticky;top:0;z-index:20;border-bottom:1px solid #3a321e}
+.nav{max-width:1200px;margin:auto;padding:15px 20px;display:flex;align-items:center;gap:24px}
+.brand{font-family:Georgia,serif;font-size:27px;letter-spacing:3px;color:var(--gold);font-weight:bold;white-space:nowrap}
+.brand small{display:block;color:#eee;font:9px Arial;letter-spacing:4px;text-align:center;margin-top:3px}
+.navlinks{display:flex;gap:20px;align-items:center;flex:1}.navlinks a{color:#eee;text-decoration:none;font-size:13px}.navlinks a:hover{color:var(--gold)}
+.navtools{display:flex;gap:8px;align-items:center}.navtools button,.menu-btn{background:transparent;border:1px solid #66552d;color:#fff;padding:9px 11px;border-radius:4px}
+.menu-btn{display:none}
+.hero{background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.3)),url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85') center/cover;min-height:440px;display:flex;align-items:center;color:#fff}
+.hero-inner{max-width:1200px;width:100%;margin:auto;padding:55px 25px}.eyebrow{color:var(--gold2);letter-spacing:4px;font-size:12px}.hero h1{font:clamp(38px,6vw,68px) Georgia,serif;max-width:620px;margin:15px 0}.hero p{color:#ddd;max-width:490px;line-height:1.7}.gold-btn{background:linear-gradient(120deg,#b48b36,#f1d88d);border:0;color:#111;padding:13px 21px;border-radius:3px;font-weight:bold;display:inline-block;text-decoration:none}
+.section{max-width:1200px;margin:0 auto;padding:48px 20px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:22px}.section h2{font:30px Georgia,serif;margin:0}.sub{color:#777;font-size:13px;margin-top:8px}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.cat{border:1px solid #ddd;background:#fff;padding:22px;text-align:center;cursor:pointer;transition:.2s}.cat:hover{border-color:var(--gold);transform:translateY(-3px)}.cat b{display:block;margin-bottom:6px}.cat span{font-size:12px;color:#777}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.toolbar input,.toolbar select,.field input,.field textarea,.field select{padding:12px;border:1px solid #ccc;border-radius:4px;background:#fff;min-width:0}.toolbar input{flex:1;min-width:180px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product{background:white;border:1px solid #e5e5e5;transition:.22s;overflow:hidden;position:relative}.product:hover{transform:translateY(-5px);box-shadow:0 10px 25px #00000012}.product img{width:100%;height:250px;object-fit:cover;background:#eee}.product-info{padding:14px}.tag{font-size:10px;color:#8a6a25;letter-spacing:1px}.product h3{font-size:15px;margin:8px 0}.price{font-weight:bold;color:#9a742a}.old{font-size:12px;color:#999;text-decoration:line-through;margin-left:7px}.product-actions{display:flex;gap:8px;margin-top:12px}.product-actions button{flex:1;padding:10px 7px;border:1px solid #c6a65c;background:#fff;font-size:12px}.product-actions button:first-child{background:#111;color:#f3d88c;border-color:#111}
+.promo{background:#111;color:#fff;text-align:center;padding:36px 20px}.promo strong{color:var(--gold2);font:27px Georgia,serif}
+footer{background:#111;color:#ddd;padding:40px 20px}.foot{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}.foot h3{color:var(--gold)}.foot p,.foot a{color:#bbb;font-size:13px;line-height:1.8}.foot a{display:block;text-decoration:none}
+.overlay{display:none;position:fixed;inset:0;background:#0009;z-index:50;align-items:center;justify-content:center;padding:15px}.overlay.show{display:flex}.modal{background:#fff;width:min(650px,100%);max-height:90vh;overflow:auto;border-radius:8px;padding:23px;position:relative}.modal h2{font:26px Georgia,serif;margin:0 0 18px}.close{position:absolute;right:14px;top:12px;border:0;background:none;font-size:25px}.field{display:grid;gap:6px;margin:12px 0}.field label{font-size:13px;font-weight:bold}.field input,.field textarea,.field select{width:100%}.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.cart-line{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;border-bottom:1px solid #eee;padding:12px 0}.cart-line img{width:64px;height:70px;object-fit:cover}.qty{display:flex;align-items:center;gap:8px}.qty button{border:1px solid #ccc;background:#fff;padding:3px 9px}.total{display:flex;justify-content:space-between;padding:9px 0}.total.grand{font-weight:bold;font-size:19px;border-top:1px solid #ddd;margin-top:8px;padding-top:15px}
+.notice{background:#fff8e8;border:1px solid #e8d39b;padding:12px;border-radius:4px;font-size:12px;line-height:1.6;color:#634d1b;margin:12px 0}.qrbox{border:1px dashed #c5a45c;padding:18px;text-align:center;background:#fffdf7}.qrbox img{max-width:220px;width:100%;display:block;margin:10px auto}.admin-wrap{background:#f0f0f0;padding:15px;border-radius:5px}.admin-table{width:100%;border-collapse:collapse;font-size:12px}.admin-table th,.admin-table td{padding:9px;border-bottom:1px solid #ddd;text-align:left;vertical-align:top}.admin-table th{background:#eee}.status{padding:4px 7px;background:#fff2cc;border-radius:10px;white-space:nowrap}.empty{text-align:center;padding:35px;color:#777}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#171717;color:white;padding:12px 18px;border-radius:5px;z-index:100;display:none}.toast.show{display:block}
+@media(max-width:850px){.nav{flex-wrap:wrap;gap:12px}.navlinks{order:3;width:100%;justify-content:center;flex-wrap:wrap}.products{grid-template-columns:repeat(3,1fr)}.product img{height:220px}}
+@media(max-width:600px){.nav{padding:12px}.brand{font-size:22px}.navlinks{gap:12px}.navlinks a{font-size:11px}.navtools{margin-left:auto}.navtools button{padding:8px}.hero{min-height:380px}.categories{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(2,1fr);gap:10px}.product img{height:190px}.product-info{padding:10px}.product h3{font-size:13px}.product-actions{flex-direction:column}.section{padding:35px 13px}.foot{grid-template-columns:1fr}.row2{grid-template-columns:1fr}.admin-table{min-width:650px}.admin-scroll{overflow:auto}}
+</style>
+</head>
+<body>
+<div class="topbar">MỸ TIÊN FASHION · ƯU ĐÃI CHO ĐƠN HÀNG ĐẦU TIÊN · HOTLINE 0974 418 947</div>
+<header>
+ <nav class="nav">
+  <a class="brand" href="#" style="text-decoration:none">MỸ TIÊN<small>FASHION STORE</small></a>
+  <div class="navlinks"><a href="#home">TRANG CHỦ</a><a href="#products">SẢN PHẨM</a><a href="#categories">DANH MỤC</a><a href="#policy">CHÍNH SÁCH</a><a href="#contact">LIÊN HỆ</a></div>
+  <div class="navtools"><button onclick="openAccount()">Tài khoản</button><button onclick="openCart()">Giỏ hàng (<span id="cartCount">0</span>)</button><button onclick="openAdmin()">Quản lý</button></div>
+ </nav>
+</header>
+<main id="home">
+<section class="hero"><div class="hero-inner"><div class="eyebrow">NEW COLLECTION · 2026</div><h1>Phong cách của riêng bạn.</h1><p>Thời trang nam và nữ dễ phối mỗi ngày. Thiết kế hiện đại, mức giá hợp lý và trải nghiệm mua sắm đơn giản.</p><a class="gold-btn" href="#products">KHÁM PHÁ SẢN PHẨM</a></div></section>
+<section class="section" id="categories"><div class="section-head"><div><h2>Mua sắm theo danh mục</h2><div class="sub">Chọn phong cách bạn yêu thích</div></div></div>
+ <div class="categories">
+  <div class="cat" onclick="filterCategory('Nữ')"><b>Thời trang nữ</b><span>Áo · Váy · Quần</span></div>
+  <div class="cat" onclick="filterCategory('Nam')"><b>Thời trang nam</b><span>Áo · Quần · Set đồ</span></div>
+  <div class="cat" onclick="filterCategory('Phụ kiện')"><b>Phụ kiện</b><span>Túi · Nón · Thắt lưng</span></div>
+  <div class="cat" onclick="filterCategory('Tất cả')"><b>Tất cả sản phẩm</b><span>Khám phá cửa hàng</span></div>
+ </div>
+</section>
+<section class="section" id="products" style="padding-top:15px">
+ <div class="section-head"><div><h2>Sản phẩm nổi bật</h2><div class="sub">Mẫu mã được chọn lọc cho phong cách hằng ngày</div></div></div>
+ <div class="toolbar"><input id="search" placeholder="Tìm tên sản phẩm..." oninput="renderProducts()"><select id="categorySelect" onchange="renderProducts()"><option value="Tất cả">Tất cả danh mục</option><option>Nam</option><option>Nữ</option><option>Phụ kiện</option></select><select id="sortSelect" onchange="renderProducts()"><option value="default">Sắp xếp mặc định</option><option value="low">Giá thấp đến cao</option><option value="high">Giá cao đến thấp</option></select></div>
+ <div class="products" id="productGrid"></div>
+</section>
+<div class="promo"><strong>MỸ TIÊN – Mặc đẹp theo cách của bạn</strong><p>Giao hàng toàn quốc · Hỗ trợ khách hàng qua hotline 0974 418 947</p></div>
+<section class="section" id="policy"><div class="section-head"><div><h2>Thông tin mua hàng</h2><div class="sub">Vui lòng đọc trước khi đặt hàng</div></div></div>
+ <div class="categories">
+  <div class="cat"><b>Giao hàng</b><span>Nhận giao hàng toàn quốc. Phí vận chuyển sẽ được shop xác nhận trước khi gửi.</span></div>
+  <div class="cat"><b>Đổi trả</b><span>Liên hệ shop khi sản phẩm lỗi hoặc giao sai. Chính sách thực tế cần được shop bổ sung rõ trước khi bán.</span></div>
+  <div class="cat"><b>Thanh toán</b><span>COD hoặc chuyển khoản QR. Đơn chuyển khoản chỉ xác nhận sau khi shop kiểm tra tiền về.</span></div>
+  <div class="cat"><b>Hỗ trợ</b><span>Hotline: 0974 418 947. Thời gian hỗ trợ cần được shop cập nhật.</span></div>
+ </div>
+</section>
+</main>
+<footer id="contact"><div class="foot"><div><div class="brand">MỸ TIÊN</div><p>Fashion Store – Thời trang nam và nữ, mức giá bình dân đến tầm trung. Cảm ơn bạn đã lựa chọn MỸ TIÊN.</p></div><div><h3>Hỗ trợ khách hàng</h3><a href="#policy">Chính sách giao hàng</a><a href="#policy">Chính sách đổi trả</a><a href="#policy">Chính sách bảo mật</a></div><div><h3>Liên hệ</h3><p>Hotline: 0974 418 947<br>Địa chỉ: Vui lòng cập nhật địa chỉ shop<br>Email: Vui lòng cập nhật email shop</p></div></div></footer>
+
+<!-- CART -->
+<div class="overlay" id="cartModal"><div class="modal"><button class="close" onclick="closeModal('cartModal')">×</button><h2>Giỏ hàng của bạn</h2><div id="cartItems"></div><div class="total"><span>Tạm tính</span><b id="cartSubtotal">0₫</b></div><div class="total"><span>Phí vận chuyển</span><span>Shop xác nhận</span></div><button class="gold-btn" style="width:100%;margin-top:12px" onclick="openCheckout()">TIẾN HÀNH ĐẶT HÀNG</button></div></div>
+<!-- CHECKOUT -->
+<div class="overlay" id="checkoutModal"><div class="modal"><button class="close" onclick="closeModal('checkoutModal')">×</button><h2>Thông tin đặt hàng</h2><div class="notice">Đây là bản thử nghiệm. Đơn hàng được lưu trên trình duyệt hiện tại, chưa tự gửi đến shop hoặc đơn vị vận chuyển.</div>
+<form id="checkoutForm" onsubmit="submitOrder(event)">
+ <div class="row2"><div class="field"><label>Họ và tên *</label><input name="name" required maxlength="80"></div><div class="field"><label>Số điện thoại *</label><input name="phone" required pattern="[0-9+ ]{9,15}" maxlength="15"></div></div>
+ <div class="field"><label>Địa chỉ nhận hàng *</label><textarea name="address" rows="2" required maxlength="250" placeholder="Số nhà, đường, xã/phường, tỉnh/thành"></textarea></div>
+ <div class="field"><label>Ghi chú</label><input name="note" maxlength="200" placeholder="Ví dụ: giao giờ hành chính"></div>
+ <div class="field"><label>Phương thức thanh toán *</label><select name="payment" id="paymentMethod" onchange="toggleQR()"><option value="COD">COD – Thanh toán khi nhận hàng</option><option value="QR">Chuyển khoản QR ngân hàng</option></select></div>
+ <div class="qrbox" id="qrArea" style="display:none"><b>Quét mã QR của shop</b><img id="shopQR" src="qr-ngan-hang-cua-shop.png" alt="Thay bằng ảnh QR ngân hàng của shop"><p id="bankInfo">Vui lòng thay ảnh QR và cập nhật thông tin ngân hàng của shop.</p><small>Nội dung chuyển khoản: mã đơn sẽ hiển thị sau khi đặt hàng. Chỉ chuyển khoản khi đã xác minh đúng người nhận.</small></div>
+ <div class="total grand"><span>Tổng tiền hàng</span><b id="checkoutTotal">0₫</b></div>
+ <button class="gold-btn" style="width:100%;margin-top:12px" type="submit">XÁC NHẬN ĐẶT HÀNG</button>
+</form></div></div>
+<!-- ACCOUNT -->
+<div class="overlay" id="accountModal"><div class="modal"><button class="close" onclick="closeModal('accountModal')">×</button><h2>Tài khoản khách hàng</h2><div class="notice">Bản demo chỉ lưu tên và email trên thiết bị này, chưa có đăng nhập bảo mật. Không nhập mật khẩu thật hoặc thông tin nhạy cảm.</div><div class="field"><label>Họ tên</label><input id="accountName" placeholder="Tên của bạn"></div><div class="field"><label>Email hoặc số điện thoại</label><input id="accountContact" placeholder="Thông tin liên hệ"></div><button class="gold-btn" onclick="saveDemoAccount()">LƯU THÔNG TIN DEMO</button><p id="accountStatus" class="sub"></p></div></div>
+<!-- ADMIN -->
+<div class="overlay" id="adminModal"><div class="modal"><button class="close" onclick="closeModal('adminModal')">×</button><h2>Quản lý cửa hàng</h2><div class="notice"><b>Chế độ quản lý thử nghiệm:</b> không có mật khẩu bảo vệ. Dữ liệu chỉ nằm trên trình duyệt này. Không dùng bản này để vận hành đơn hàng thật hoặc lưu dữ liệu khách hàng thật.</div>
+ <div class="admin-wrap"><h3>Thêm sản phẩm</h3><div class="row2"><div class="field"><label>Tên sản phẩm</label><input id="newName" placeholder="Ví dụ: Áo thun basic"></div><div class="field"><label>Giá (VNĐ)</label><input id="newPrice" type="number" min="1000" placeholder="199000"></div></div><div class="row2"><div class="field"><label>Danh mục</label><select id="newCat"><option>Nam</option><option>Nữ</option><option>Phụ kiện</option></select></div><div class="field"><label>Link ảnh (URL)</label><input id="newImage" placeholder="https://..."></div></div><button class="gold-btn" onclick="addProduct()">THÊM SẢN PHẨM</button></div>
+ <h3>Đơn hàng đã tạo trên trình duyệt này</h3><div class="admin-scroll"><table class="admin-table"><thead><tr><th>Mã đơn</th><th>Khách hàng</th><th>Sản phẩm</th><th>Tổng</th><th>Thanh toán</th><th>Trạng thái</th></tr></thead><tbody id="orderRows"></tbody></table></div>
+ <h3>Danh sách sản phẩm</h3><div id="adminProducts"></div>
+</div></div>
+<div class="toast" id="toast"></div>
+<script>
+const money=n=>new Intl.NumberFormat('vi-VN').format(n)+'₫';
+const seedProducts=[
+{id:1,name:'Áo thun basic form rộng',cat:'Nam',price:159000,img:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80',desc:'Áo thun dễ phối, phù hợp mặc hằng ngày.'},
+{id:2,name:'Áo sơ mi nữ thanh lịch',cat:'Nữ',price:229000,img:'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=700&q=80',desc:'Thiết kế tối giản, dễ phối cùng quần hoặc chân váy.'},
+{id:3,name:'Quần jean nam',cat:'Nam',price:299000,img:'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=80',desc:'Phong cách năng động, dễ phối đồ.'},
+{id:4,name:'Váy nữ phong cách tối giản',cat:'Nữ',price:319000,img:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=80',desc:'Phù hợp đi chơi, gặp gỡ và dạo phố.'},
+{id:5,name:'Túi đeo vai thời trang',cat:'Phụ kiện',price:249000,img:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=80',desc:'Kiểu dáng gọn gàng, tiện dụng.'},
+{id:6,name:'Áo khoác casual',cat:'Nam',price:359000,img:'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80',desc:'Phong cách trẻ trung, dễ phối.'},
+{id:7,name:'Chân váy nữ',cat:'Nữ',price:189000,img:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=700&q=80',desc:'Thiết kế đơn giản, linh hoạt nhiều dịp.'},
+{id:8,name:'Nón basic',cat:'Phụ kiện',price:99000,img:'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=700&q=80',desc:'Phụ kiện hoàn thiện outfit thường ngày.'}
+];
+let products=JSON.parse(localStorage.getItem('mytien_products')||'null')||seedProducts;
+let cart=JSON.parse(localStorage.getItem('mytien_cart')||'{}');
+let orders=JSON.parse(localStorage.getItem('mytien_orders')||'[]');
+function persist(){localStorage.setItem('mytien_products',JSON.stringify(products));localStorage.setItem('mytien_cart',JSON.stringify(cart));localStorage.setItem('mytien_orders',JSON.stringify(orders));}
+function toast(msg){let t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2300)}
+function renderProducts(){let q=(document.getElementById('search').value||'').toLowerCase(),c=document.getElementById('categorySelect').value,s=document.getElementById('sortSelect').value;let list=products.filter(p=>(c==='Tất cả'||p.cat===c)&&(p.name.toLowerCase().includes(q)));if(s==='low')list.sort((a,b)=>a.price-b.price);if(s==='high')list.sort((a,b)=>b.price-a.price);document.getElementById('productGrid').innerHTML=list.length?list.map(p=>`<article class="product"><img src="${safe(p.img)}" alt="${safe(p.name)}" onerror="this.src='https://placehold.co/600x700/f0f0f0/777?text=MY+TIEN'"><div class="product-info"><div class="tag">${safe(p.cat.toUpperCase())}</div><h3>${safe(p.name)}</h3><div class="price">${money(p.price)}</div><div class="product-actions"><button onclick="addCart(${p.id})">Thêm vào giỏ</button><button onclick="buyNow(${p.id})">Mua ngay</button></div></div></article>`).join(''):'<div class="empty">Không tìm thấy sản phẩm phù hợp.</div>'}
+function safe(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function filterCategory(c){document.getElementById('categorySelect').value=c;document.getElementById('products').scrollIntoView();renderProducts()}
+function addCart(id){cart[id]=(cart[id]||0)+1;persist();updateCartCount();toast('Đã thêm sản phẩm vào giỏ hàng')}
+function buyNow(id){addCart(id);openCart()}
+function updateCartCount(){document.getElementById('cartCount').textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function subtotal(){return Object.entries(cart).reduce((sum,[id,q])=>{let p=products.find(x=>x.id==id);return sum+(p?p.price*q:0)},0)}
+function openCart(){renderCart();showModal('cartModal')}
+function renderCart(){let el=document.getElementById('cartItems'),entries=Object.entries(cart).filter(([id,q])=>q>0);el.innerHTML=entries.length?entries.map(([id,q])=>{let p=products.find(x=>x.id==id);if(!p)return '';return `<div class="cart-line"><img src="${safe(p.img)}"><div><b>${safe(p.name)}</b><div class="sub">${money(p.price)}</div><div class="qty"><button onclick="changeQty(${id},-1)">−</button>${q}<button onclick="changeQty(${id},1)">+</button></div></div><b>${money(p.price*q)}</b></div>`}).join(''):'<div class="empty">Giỏ hàng đang trống.</div>';document.getElementById('cartSubtotal').textContent=money(subtotal());document.getElementById('checkoutTotal').textContent=money(subtotal())}
+function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];persist();updateCartCount();renderCart()}
+function showModal(id){document.getElementById(id).classList.add('show')}function closeModal(id){document.getElementById(id).classList.remove('show')}
+function openCheckout(){if(!Object.keys(cart).length){toast('Giỏ hàng đang trống');return}closeModal('cartModal');document.getElementById('checkoutTotal').textContent=money(subtotal());showModal('checkoutModal')}
+function toggleQR(){document.getElementById('qrArea').style.display=document.getElementById('paymentMethod').value==='QR'?'block':'none'}
+function submitOrder(e){e.preventDefault();if(!Object.keys(cart).length)return;let f=new FormData(e.target);let items=Object.entries(cart).map(([id,q])=>{let p=products.find(x=>x.id==id);return p?{name:p.name,price:p.price,qty:q}:null}).filter(Boolean);let order={code:'MT'+Date.now().toString().slice(-8),name:f.get('name'),phone:f.get('phone'),address:f.get('address'),note:f.get('note'),payment:f.get('payment'),items,total:subtotal(),status:'Chờ shop xác nhận',created:new Date().toLocaleString('vi-VN')};orders.unshift(order);cart={};persist();updateCartCount();e.target.reset();toggleQR();closeModal('checkoutModal');toast('Đã tạo đơn demo '+order.code);alert('Đơn demo '+order.code+' đã được lưu trên trình duyệt này. Đây chưa phải đơn hàng gửi đến shop. Hãy liên hệ hotline 0974 418 947 để xác nhận.');}
+function openAccount(){let a=JSON.parse(localStorage.getItem('mytien_demo_account')||'{}');document.getElementById('accountName').value=a.name||'';document.getElementById('accountContact').value=a.contact||'';showModal('accountModal')}
+function saveDemoAccount(){let a={name:document.getElementById('accountName').value.trim(),contact:document.getElementById('accountContact').value.trim()};if(!a.name||!a.contact){toast('Vui lòng nhập tên và thông tin liên hệ');return}localStorage.setItem('mytien_demo_account',JSON.stringify(a));document.getElementById('accountStatus').textContent='Đã lưu thông tin demo trên thiết bị này.';toast('Đã lưu thông tin demo')}
+function openAdmin(){renderAdmin();showModal('adminModal')}
+function addProduct(){let name=document.getElementById('newName').value.trim(),price=Number(document.getElementById('newPrice').value),cat=document.getElementById('newCat').value,img=document.getElementById('newImage').value.trim();if(!name||price<1000){toast('Nhập tên và giá hợp lệ');return}products.unshift({id:Date.now(),name,price,cat,img:img||'https://placehold.co/600x700?text=MY+TIEN',desc:''});persist();renderProducts();renderAdmin();document.getElementById('newName').value='';document.getElementById('newPrice').value='';document.getElementById('newImage').value='';toast('Đã thêm sản phẩm demo')}
+function renderAdmin(){document.getElementById('orderRows').innerHTML=orders.length?orders.map((o,i)=>`<tr><td>${safe(o.code)}<br><small>${safe(o.created)}</small></td><td>${safe(o.name)}<br>${safe(o.phone)}<br>${safe(o.address)}</td><td>${o.items.map(x=>safe(x.name)+' × '+x.qty).join('<br>')}</td><td>${money(o.total)}</td><td>${safe(o.payment)}</td><td><select onchange="setStatus(${i},this.value)">${['Chờ shop xác nhận','Đang chuẩn bị','Đang giao','Đã giao','Đã hủy'].map(s=>`<option ${o.status===s?'selected':''}>${s}</option>`).join('')}</select></td></tr>`).join(''):'<tr><td colspan="6">Chưa có đơn demo nào.</td></tr>';document.getElementById('adminProducts').innerHTML=products.map(p=>`<div style="display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #ddd;padding:8px 0;font-size:13px"><span>${safe(p.name)} – ${money(p.price)}</span><button onclick="deleteProduct(${p.id})">Xóa</button></div>`).join('')}
+function setStatus(i,s){orders[i].status=s;persist();toast('Đã cập nhật trạng thái demo')}
+function deleteProduct(id){if(!confirm('Xóa sản phẩm này?'))return;products=products.filter(p=>p.id!==id);delete cart[id];persist();renderProducts();renderAdmin();updateCartCount()}
+document.querySelectorAll('.overlay').forEach(el=>el.addEventListener('click',e=>{if(e.target===el)el.classList.remove('show')}));
+renderProducts();updateCartCount();
+</script>
+</body>
+</html>
